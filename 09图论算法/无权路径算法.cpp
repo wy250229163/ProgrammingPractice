@@ -63,7 +63,7 @@ void Unweighted(Graph &G,VerNode &S)
 		w=V.firstedge;
 		while(w)
 		{
-			
+			int i; 
 		}
 	}
 } 
