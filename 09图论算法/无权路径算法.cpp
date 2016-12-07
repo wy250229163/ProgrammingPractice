@@ -18,7 +18,7 @@ typedef struct VerNode
 {
 	Vertextype data;
 	int dist;
-	VerNode *path;
+	Vertextype path;
 	EdgeNode *firstedge;
 }VerNode;
 
@@ -37,7 +37,7 @@ void CreateDAG(Graph &G,int n,int e)
 	{
 		cin>>G.verNode[i].data;
 		G.verNode[i].dist=Infinity;
-		G.verNode[i].path=NULL;
+		G.verNode[i].path=0;
 		G.verNode[i].firstedge=NULL;
 	}
 	for(k=1;k<=e;k++)
@@ -51,25 +51,52 @@ void CreateDAG(Graph &G,int n,int e)
 	}
 }
 
-void Unweighted(Graph &G,VerNode &S)
+void Unweighted(Graph &G,int n)
 {
 	queue<VerNode> Q;
 	VerNode V;
 	EdgeNode *w;
-	Q.push(S);
+	G.verNode[n].dist=0;
+	Q.push(G.verNode[n]);
 	while(!Q.empty())
 	{
 		V=Q.front();Q.pop();
 		w=V.firstedge;
 		while(w)
 		{
-			int i; 
+			if(G.verNode[w->adjVertex].dist==Infinity)
+			{			
+				G.verNode[w->adjVertex].dist=V.dist+1;
+				G.verNode[w->adjVertex].path=V.data;
+				Q.push(G.verNode[w->adjVertex]);
+			}
+			w=w->nextEdgeNode;
 		}
 	}
 } 
 
 int main()
 {
+	int i;
 	Graph G;
 	CreateDAG(G,7,12);
+	Unweighted(G,3);
+	for(i=1;i<=7;i++)
+		printf("%d ",G.verNode[i].path);
 }
+
+/*****²âÊÔÊý¾Ý 
+1 2 3 4 5 6 7
+3 1
+3 6
+1 2
+1 4
+2 4
+2 5
+4 3
+4 5
+4 6
+4 7
+5 7
+7 6
+*******/
