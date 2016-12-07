@@ -1,0 +1,17 @@
+#include<cstdio>
+#include<cstring>
+
+#define num_max 100 
+#define numlen_max 100
+using namespace std;
+
+int main(void)
+{
+	int m,k;
+	scanf("%d",&m);
+	while(m--)
+	{
+		scanf("%d",&k);
+		int a[num_max][numlen_max];//num_max个数，每个数长度最大numlen_max 
+	}
+} 
