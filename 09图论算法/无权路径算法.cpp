@@ -85,7 +85,7 @@ int main()
 		printf("%d ",G.verNode[i].path);
 }
 
-/*****²âÊÔÊı¾İ 
+/*****
 1 2 3 4 5 6 7
 3 1
 3 6
