@@ -92,7 +92,7 @@ void Dijkstra(Graph &G,int n,int start) //带权路径最短Dijkstra算法
 	}
 }
 
-int PrintPath(Graph &G,int n,int end) //打印最短路径信息，并返回路径长度
+void PrintPath(Graph &G,int n,int end) //打印最短路径信息
 {
 	if(G.verNode[end].path!=NotAVertex)
 	{
