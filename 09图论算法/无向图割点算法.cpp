@@ -127,5 +127,7 @@ D E
 E F
 F D
 D A
-Êä³ö£ºD C 
+Êä³ö£º
+D is an articulation point.
+C is an articulation point. 
 **************/
