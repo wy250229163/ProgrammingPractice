@@ -146,24 +146,6 @@ int isWordList(Graph &G)
 		return 0; 
 }
 
-void Debug(Graph &G)
-{
-	EdgeNode *p;
-	for(int i=1;i<=26;i++)
-	{
-		printf("%c(in: %d , out: %d ) => ",G.verNode[i].data-1+'a',G.verNode[i].inDegree,G.verNode[i].outDegree);
-		p=G.verNode[i].firstedge;
-		while(p)
-		{
-			if(p->isDirecEdge) 
-				printf("%c ",(p->adjVertex-1+'a'));
-			p=p->nextEdgeNode;
-		}
-		printf("\n");
-	}
-	printf("%d\n",UnDirecCounter);	
-}
-
 int main()
 {
 	int n;
@@ -171,7 +153,6 @@ int main()
 	Graph G;
 	Init_Globalpara();
 	CreateDAG(G,n);
-//	Debug(G);
 	if(isWordList(G))
 		cout<<"Yes"<<endl;
 	else
